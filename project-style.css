@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Montserrat:wght@500&family=Roboto&family=Roboto+Mono:wght@300&family=Roboto+Slab&display=swap');
+
+:root{
+  --clr-bg-one: rgba(235, 240, 243, 1);
+  --clr-bg-two: rgba(241, 245, 248, 1);
+
+  --clr-neutral: rgba(255, 255, 255, 1);
+
+  --clr-font-one: rgba(23, 60, 94, 1);
+  --clr-font-two: rgba(0, 0, 0, 1);
+  --clr-font-three: rgba(51, 51, 51, 1);
+
+  --ff-primary: "Roboto", sans-serif;
+
+  --fs-300: 0.8125rem;
+  --fs-400: 0.875rem;
+  --fs-500: 0.9375rem;
+  --fs-600: 1rem;
+  --fs-700: 1.5rem;
+  --fs-800: 2rem;
+  --fs-900: 3.5rem;
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/*-----------------------------------------Navigator--------------------------*/
+
+.navigation{
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 1rem 1rem;
+  padding: .5rem;
+  background-color: var(--clr-neutral);
+  white-space: nowrap;
+}
+
+.navigationInner{
+  width: 75%;
+  margin: auto;
+  display: flex;
+}
+
+.navHeader{
+  color: var(--clr-font-one);
+  font-size: var(--fs-900);
+  font-weight: var(--fw-bold);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation h1{
+  cursor: pointer;
+}
+
+.fa-house{
+  transition: .3s;
+  color: var(--clr-font-two);
+  font-size: var(--fs-700);
+  padding-top: 1rem;
+}
+
+.fa-house:hover{
+  transition: .3s;
+  opacity: .5;
+}
+
+@media (max-width: 800px) {
+  .navigationInner{
+    width: 95%;
+  }
+
+  .fa-house{
+    display: none;
+  }
+}
+
+/*------------------------------------------Main------------------------------*/
+
+body{
+  background-color: var(--clr-bg-two);
+}
+
+/*------------------------Dropdown--------------------------------------------*/
+
+:root{
+  --menu-width: 65%;
+  --menu-width-mobile: 80%;
+
+  --image-width-min: 90%;
+  --image-width-max: 100%;
+
+  --clr-div-hover: rgba(23, 60, 94, 0.75);
+}
+
+
+.dropdown-menu{
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  position: relative;
+  font-size: var(--fs-700);
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: -4rem;
+}
+
+.dropdown-menu::before{
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 78%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 2px solid var(--clr-font-three);
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  transform: rotate(-45deg);
+  pointer-events: none;
+  transition: .3s;
+}
+
+.dropdown-menu.active::before{
+  transform: rotate(-225deg);
+  margin-top: 0.15em;
+}
+
+.dropdown-menu-text-box{
+  width: var(--menu-width);
+  margin: auto;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  height: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  text-align: center;
+}
+
+.dropdown-menu-option{
+  width: var(--menu-width);
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin: auto;
+  background-color: var(--clr-neutral);
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  overflow: hidden;
+  word-wrap: normal;
+  display: none;
+  z-index: 2;
+}
+
+.dropdown-menu.active .dropdown-menu-option{
+  display: block;
+}
+
+.dropdown-menu-option ion-icon{
+  vertical-align: sub;
+  margin-right: .2rem;
+  font-size: var(--fs-700);
+}
+
+.dropdown-menu .dropdown-menu-option div{
+  padding: 0.6rem 1.2rem;
+  line-height: 1.4;
+  font-size: var(--fs-700);
+  cursor: pointer;
+}
+
+.dropdown-menu .dropdown-menu-option div:hover{
+  transition: .1s;
+  background-color: var(--clr-div-hover);
+  color: var(--clr-neutral);
+}
+
+@media (max-width: 800px) {
+  .dropdown-menu{
+    width: 95%;
+  }
+
+  .dropdown-menu-text-box{
+    width: var(--menu-width-mobile);
+  }
+
+  .dropdown-menu-option{
+    width: var(--menu-width-mobile);
+  }
+
+  .dropdown-menu::before{
+    content: "";
+    left: 80%;
+  }
+}
+
+@media (max-width: 300px){
+  .dropdown-menu::before{
+    display: none;
+  }
+}
+
+/*-----------------------------------------Main Section-----------------------*/
+
+.main{
+  width: var(--menu-width);
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem;
+  grid-gap: 2.5rem;
+}
+
+@media (max-width: 1200px) {
+  .grid{
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0;
+    grid-gap: 2.5rem;
+  }
+
+  .main{
+    width: var(--menu-width-mobile);
+  }
+
+}
+
+/*--------------------------------Container in Main Section-------------------*/
+
+:root{
+  --icon-fs: 2rem;
+  --icon-fs-mobile: 1.5rem;
+
+  --icon-clr-css: rgba(27, 115, 186, 1);
+  --icon-clr-js: rgba(247, 224, 24, 1);
+  --icon-clr-react: rgba(128, 228, 164, 1);
+  --icon-clr-vue: rgba(63, 185, 132, 1);
+
+  --icon-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  --clr-border: rgba(72,72,72, 0.5);
+}
+
+.project-image{
+  min-width: var(--image-width-min);
+  max-width: var(--image-width-max);
+}
+
+.project{
+  background-color: var(--clr-neutral);
+  border-radius: 0 0 1rem 1rem;
+  border: 1px solid var(--clr-border);
+}
+
+.made-with{
+  display: flex;
+  width: 90%;
+  margin: auto;
+  justify-content: center;
+  padding: .5rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.made-with ion-icon{
+  font-size: var(--icon-fs);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-family: var(--ff-primary);
+}
+
+.made-with ion-icon:hover{
+  opacity: 0.75;
+}
+
+.css-icon{
+  color: var(--icon-clr-css);
+}
+
+.js-icon{
+  color: var(--icon-clr-js);
+}
+
+.react-icon{
+  color: var(--icon-clr-react);
+}
+
+.vue-icon{
+  color: var(--icon-clr-vue);
+}
+
+.inner-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.inner-grid-element{
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.inner-grid-element-text{
+  color: black;
+  text-decoration: none;
+  font-family: var(--ff-primary);
+}
+
+.inner-grid-element-text:hover{
+  text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+  .made-with ion-icon{
+    font-size: var(--icon-fs-mobile)
+  }
+}
